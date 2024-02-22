@@ -13,7 +13,6 @@ categories: Python
 # #   nav: "docs"
 # search: true
 ---
-
 # Pandas data wrangling (1) - Groupby
 
 ## Loading packages
@@ -21,9 +20,14 @@ categories: Python
 
 ```python
 import pandas as pd
+import numpy as np
 import os
 path = os.getcwd()
+print(path)
 ```
+
+    /Users/steve.han/git/stevehan310.github.io/notebooks
+
 
 ## Loading data file (Titanic Data from Kaggle Competition)
 
@@ -207,7 +211,7 @@ df.head()
 
 
 
-## Pandas Groupby Practice
+## Pandas Groupby 
 
 
 ```python
@@ -221,10 +225,9 @@ df_agg = df.groupby(['Embarked', 'Pclass'], as_index = False)
 df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and add them into a column with name 'fare_avg'
            fare_min = ('Fare', np.min), # Get a minimum of Fare per group and add them into a column with name 'fare_min'
            fare_max = ('Fare', np.max), # Get a maximum of Fare per group and add them into a column with name 'fare_max'
-           num_unique = ('ticket', 'nunique')
-)
+           num_passenger = ('PassengerId', 'nunique') # Get a number of passenger per group and add them into a column with name 'num_passenger'
+          )
 
-# np stat functions
 # np.unique
 # np.count_nonzero  
 # np.sum – Sum of values
@@ -260,8 +263,9 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <th>Embarked</th>
       <th>Pclass</th>
       <th>fare_avg</th>
-      <th>min_fare</th>
-      <th>max_fare</th>
+      <th>fare_min</th>
+      <th>fare_max</th>
+      <th>num_passenger</th>
     </tr>
   </thead>
   <tbody>
@@ -272,6 +276,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>104.718529</td>
       <td>26.5500</td>
       <td>512.3292</td>
+      <td>85</td>
     </tr>
     <tr>
       <th>1</th>
@@ -280,6 +285,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>25.358335</td>
       <td>12.0000</td>
       <td>41.5792</td>
+      <td>17</td>
     </tr>
     <tr>
       <th>2</th>
@@ -288,6 +294,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>11.214083</td>
       <td>4.0125</td>
       <td>22.3583</td>
+      <td>66</td>
     </tr>
     <tr>
       <th>3</th>
@@ -296,6 +303,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>90.000000</td>
       <td>90.0000</td>
       <td>90.0000</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
@@ -304,6 +312,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>12.350000</td>
       <td>12.3500</td>
       <td>12.3500</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>5</th>
@@ -312,6 +321,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>11.183393</td>
       <td>6.7500</td>
       <td>29.1250</td>
+      <td>72</td>
     </tr>
     <tr>
       <th>6</th>
@@ -320,6 +330,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>70.364862</td>
       <td>0.0000</td>
       <td>263.0000</td>
+      <td>127</td>
     </tr>
     <tr>
       <th>7</th>
@@ -328,6 +339,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>20.327439</td>
       <td>0.0000</td>
       <td>73.5000</td>
+      <td>164</td>
     </tr>
     <tr>
       <th>8</th>
@@ -336,6 +348,7 @@ df_agg.agg(fare_avg = ('Fare', np.mean), # Get the average of Fare per group and
       <td>14.644083</td>
       <td>0.0000</td>
       <td>69.5500</td>
+      <td>353</td>
     </tr>
   </tbody>
 </table>
@@ -526,3 +539,5 @@ df_agg.agg({'Fare': lambda x: x.max() - x.min()})
   </tbody>
 </table>
 </div>
+
+
