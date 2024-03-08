@@ -13,12 +13,9 @@ categories: Python
 # #   nav: "docs"
 # search: true
 ---
+<h1>1. Python string type</h1>
 
-<h1>Python Tips</h1>
-
-<h2>1. Python string type</h2>
-
-<h3>1.a Python Escape Characters</h3>
+<h2>1.a Python Escape Characters</h2>
 
 
 ```python
@@ -34,7 +31,7 @@ categories: Python
 # \000 : Null character
 ```
 
-<h3>1.b F-string formatting in python</h3>
+<h2>1.b F-string formatting in python</h2>
 
 
 ```python
@@ -66,7 +63,7 @@ f'{y:10.4f}' # up to 4 decimal places and set the total number of digits to 10.
 
 
 
-<h2>2. Dictionary type</h2>
+<h1>2. Dictionary type</h1>
 
 
 ```python
@@ -102,7 +99,7 @@ a.get('nokey', 'foo') # When the key is in the dictionary, return the default va
 
 
 
-<h2>3. 'for' and 'continue' </h2>
+<h1>3. 'for' and 'continue' </h1>
 
 
 ```python
@@ -120,7 +117,7 @@ for mark in marks:
     student #5 passed the exam. 
 
 
-<h2>4. list comprehension</h2>
+<h1>4. list comprehension</h1>
 
 
 ```python
@@ -153,9 +150,9 @@ print(result)
     [6, 12]
 
 
-<h2>5. Functions</h2>
+<h1>5. Functions</h1>
 
-<h3>5.1 *args</h3>
+<h2>5.1 *args</h2>
 
 
 ```python
@@ -175,7 +172,7 @@ print(result)
     15
 
 
-<h3>5.b Keyword Arguments **kwargs</h3>
+<h2>5.b Keyword Arguments **kwargs</h2>
 
 
 ```python
@@ -199,7 +196,7 @@ print_kwargs(name='foo', age=3)
     {'name': 'foo', 'age': 3}
 
 
-<h2>6. Print</h2>
+<h1>6. Print</h1>
 
 
 ```python
@@ -222,7 +219,7 @@ for i in range(5):
 
     0 1 2 3 4 
 
-<h2> 7. Python Decorator</h2>
+<h1> 7. Python Decorator</h1>
 
 
 ```python
@@ -246,14 +243,3 @@ decorated_myfunc()
 
     Function is being executed.
     Function execution time: 0.000403 seconds
-
-
-
-```python
-
-```
-
-
-```python
-
-```
