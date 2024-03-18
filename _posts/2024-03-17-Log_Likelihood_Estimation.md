@@ -94,7 +94,7 @@ print("True standard deviation:", true_std_dev)
     True standard deviation: 2
 
 
-### Sample Size 1000
+### 1.2 Sample Size 1000
 
 
 ```python
