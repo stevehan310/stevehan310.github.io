@@ -73,7 +73,7 @@ plt.plot(xvals, yvals, color='red', label='fitted line')
 plt.legend()
 ```
 
-[![Alt text for broken image link](../assets/images/GLM/output_5_1.png)]
+![Alt text for broken image link](/assets/images/GLM/output_5_1.png){:class="img-responsive"}
     
 
 
@@ -101,9 +101,6 @@ plt.scatter(x, y,  s=20, alpha=0.8)
 ```
 
 ![test1](/assets/images/GLM/output_8_1.png){:class="img-responsive"}
-![test2](../assets/images/GLM/output_8_1.png){:class="img-responsive"}
-![test3](../assets/images/GLM/output_8_1.png)    
-
 
 
 ```python
@@ -181,7 +178,7 @@ plt.ylabel("Y")
 
 
     
-![Alt text for broken image link](assets/images/GLM/output_9_3.png)    
+![Alt text for broken image link](assets/images/GLM/output_9_3.png){:class="img-responsive"}    
     
 
 
@@ -201,7 +198,7 @@ plt.plot(xx, logistic(xx))
 
 
     
-![Alt text for broken image link](assets/images/GLM/output_11_1.png)    
+![Alt text for broken image link](assets/images/GLM/output_11_1.png){:class="img-responsive"}    
     
 
 
@@ -229,7 +226,7 @@ plt.scatter(x, y,  s=10, alpha=0.9)
 
 
     
-![Alt text for broken image link](assets/images/GLM/output_12_1.png)        
+![Alt text for broken image link](assets/images/GLM/output_12_1.png){:class="img-responsive"}        
 
 
 
@@ -304,7 +301,7 @@ plt.ylabel("Y")
 
     Text(0, 0.5, 'Y')
     
-![Alt text for broken image link](assets/images/GLM/output_13_3.png)        
+![Alt text for broken image link](assets/images/GLM/output_13_3.png){:class="img-responsive"}        
 
 
 # 4. Custom GLM
@@ -339,7 +336,7 @@ plt.scatter(x, y,  s=10, alpha=0.9)
 
 
     
-![Alt text for broken image link](assets/images/GLM/output_16_1.png)        
+![Alt text for broken image link](assets/images/GLM/output_16_1.png){:class="img-responsive"}        
 
 
 
@@ -414,5 +411,5 @@ plt.ylabel("Y")
     Text(0, 0.5, 'Y')
 
     
-![Alt text for broken image link](assets/images/GLM/output_17_3.png)        
+![Alt text for broken image link](assets/images/GLM/output_17_3.png){:class="img-responsive"}        
 
