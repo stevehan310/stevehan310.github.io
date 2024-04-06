@@ -73,10 +73,6 @@ plt.plot(xvals, yvals, color='red', label='fitted line')
 plt.legend()
 ```
 
-
-
-
-    <matplotlib.legend.Legend at 0x136def750>
 ![Alt text for broken image link](assets/images/GLM/output_5_1.png)
     
 
@@ -103,18 +99,8 @@ mu = np.exp(a * x + b) # Linear predictor is a * x + b,
 y = poisson(mu) # Probability distribution is Poisson Distribution (This is why Y is a positive discrete variable)  
 plt.scatter(x, y,  s=20, alpha=0.8)
 ```
-
-
-
-
-    <matplotlib.collections.PathCollection at 0x137c1ce50>
-
-
-
-
-    
-![png](output_8_1.png)
-    
+ 
+![Alt text for broken image link](assets/images/GLM/output_8_1.png)    
 
 
 
@@ -193,7 +179,7 @@ plt.ylabel("Y")
 
 
     
-![png](output_9_3.png)
+![Alt text for broken image link](assets/images/GLM/output_9_3.png)    
     
 
 
@@ -212,14 +198,8 @@ plt.plot(xx, logistic(xx))
 
 
 
-
-    [<matplotlib.lines.Line2D at 0x138117b50>]
-
-
-
-
     
-![png](output_11_1.png)
+![Alt text for broken image link](assets/images/GLM/output_11_1.png)    
     
 
 
@@ -247,8 +227,7 @@ plt.scatter(x, y,  s=10, alpha=0.9)
 
 
     
-![png](output_12_1.png)
-    
+![Alt text for broken image link](assets/images/GLM/output_12_1.png)        
 
 
 
@@ -322,13 +301,8 @@ plt.ylabel("Y")
 
 
     Text(0, 0.5, 'Y')
-
-
-
-
     
-![png](output_13_3.png)
-    
+![Alt text for broken image link](assets/images/GLM/output_13_3.png)        
 
 
 # 4. Custom GLM
@@ -363,8 +337,7 @@ plt.scatter(x, y,  s=10, alpha=0.9)
 
 
     
-![png](output_16_1.png)
-    
+![Alt text for broken image link](assets/images/GLM/output_16_1.png)        
 
 
 
@@ -438,10 +411,6 @@ plt.ylabel("Y")
 
     Text(0, 0.5, 'Y')
 
-
-
-
     
-![png](output_17_3.png)
-    
+![Alt text for broken image link](assets/images/GLM/output_17_3.png)        
 
