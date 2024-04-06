@@ -73,7 +73,7 @@ plt.plot(xvals, yvals, color='red', label='fitted line')
 plt.legend()
 ```
 
-[![Alt text for broken image link](assets/images/GLM/output_5_1.png)]
+[![Alt text for broken image link](../assets/images/GLM/output_5_1.png)]
     
 
 
@@ -100,7 +100,7 @@ y = poisson(mu) # Probability distribution is Poisson Distribution (This is why 
 plt.scatter(x, y,  s=20, alpha=0.8)
 ```
  
-![Alt text for broken image link](assets/images/GLM/output_8_1.png)    
+![Alt text for broken image link](../assets/images/GLM/output_8_1.png)    
 
 
 
