@@ -99,8 +99,10 @@ mu = np.exp(a * x + b) # Linear predictor is a * x + b,
 y = poisson(mu) # Probability distribution is Poisson Distribution (This is why Y is a positive discrete variable)  
 plt.scatter(x, y,  s=20, alpha=0.8)
 ```
- 
-![Alt text for broken image link](../assets/images/GLM/output_8_1.png)    
+
+![test1](/assets/images/GLM/output_8_1.png){:class="img-responsive"}
+![test2](../assets/images/GLM/output_8_1.png){:class="img-responsive"}
+![test3](../assets/images/GLM/output_8_1.png)    
 
 
 
