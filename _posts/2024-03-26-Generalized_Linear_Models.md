@@ -77,12 +77,7 @@ plt.legend()
 
 
     <matplotlib.legend.Legend at 0x136def750>
-
-
-
-
-    
-![png](output_5_1.png)
+![Alt text for broken image link](assets/images/GLM/output_5_1.png)
     
 
 
