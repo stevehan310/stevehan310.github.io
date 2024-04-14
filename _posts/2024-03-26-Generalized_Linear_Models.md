@@ -15,7 +15,7 @@ categories: ML
 ---
 
 
-# Generalized Linear Model
+# Generalized Linear Models in Python
 
 
 ```python
