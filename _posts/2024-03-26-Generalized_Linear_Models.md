@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Generalized Linear Model"
+title: "Generalized Linear Models"
 author: "Steve Han"
 tags: [Statistics, Python]
 categories: ML
@@ -33,7 +33,7 @@ sns.set()
 np.random.seed(42)  # Set seed for reproducibility
 ```
 
-# 1. Linear Regression
+## 1. Linear Regression
 
 
 ```python
@@ -73,20 +73,11 @@ plt.plot(xvals, yvals, color='red', label='fitted line')
 plt.legend()
 ```
 
-
-
-
-    <matplotlib.legend.Legend at 0x136def750>
-
-
-
-
-    
-![png](output_5_1.png)
+![Alt text for broken image link](/assets/images/GLM/output_5_1.png){:class="img-responsive"}
     
 
 
-# 2. Poisson Regression
+## 2. Poisson Regression
 
 ### Three cases when Poisson Regression should be applied:
 
@@ -109,18 +100,7 @@ y = poisson(mu) # Probability distribution is Poisson Distribution (This is why 
 plt.scatter(x, y,  s=20, alpha=0.8)
 ```
 
-
-
-
-    <matplotlib.collections.PathCollection at 0x137c1ce50>
-
-
-
-
-    
-![png](output_8_1.png)
-    
-
+![test1](/assets/images/GLM/output_8_1.png){:class="img-responsive"}
 
 
 ```python
@@ -192,17 +172,11 @@ plt.ylabel("Y")
 
 
 
-    Text(0, 0.5, 'Y')
-
-
-
-
-    
-![png](output_9_3.png)
+![Alt text for broken image link](/assets/images/GLM/output_9_3.png){:class="img-responsive"}    
     
 
 
-# 3. Logistic Regression
+## 3. Logistic Regression
 
 
 ```python
@@ -218,13 +192,7 @@ plt.plot(xx, logistic(xx))
 
 
 
-    [<matplotlib.lines.Line2D at 0x138117b50>]
-
-
-
-
-    
-![png](output_11_1.png)
+![Alt text for broken image link](/assets/images/GLM/output_11_1.png){:class="img-responsive"}    
     
 
 
@@ -252,8 +220,7 @@ plt.scatter(x, y,  s=10, alpha=0.9)
 
 
     
-![png](output_12_1.png)
-    
+![Alt text for broken image link](/assets/images/GLM/output_12_1.png){:class="img-responsive"}        
 
 
 
@@ -327,16 +294,11 @@ plt.ylabel("Y")
 
 
     Text(0, 0.5, 'Y')
-
-
-
-
     
-![png](output_13_3.png)
-    
+![Alt text for broken image link](/assets/images/GLM/output_13_3.png){:class="img-responsive"}        
 
 
-# 4. Custom GLM
+## 4. Custom GLM
 
 ### Let's create a glm model with conditions below
 #### 1. The relationship between x and y is an exponential relationship
@@ -368,8 +330,7 @@ plt.scatter(x, y,  s=10, alpha=0.9)
 
 
     
-![png](output_16_1.png)
-    
+![Alt text for broken image link](/assets/images/GLM/output_16_1.png){:class="img-responsive"}        
 
 
 
@@ -443,10 +404,6 @@ plt.ylabel("Y")
 
     Text(0, 0.5, 'Y')
 
-
-
-
     
-![png](output_17_3.png)
-    
+![Alt text for broken image link](/assets/images/GLM/output_17_3.png){:class="img-responsive"}        
 
