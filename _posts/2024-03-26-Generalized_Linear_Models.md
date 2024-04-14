@@ -79,11 +79,10 @@ plt.legend()
 
 ## 2. Poisson Regression
 
-### Three cases when Poisson Regression should be applied:
-
-#### 1. When there is an exponential relationship between x and y
-#### 2. When the increase in X leads to an increase in the variance of Y
-#### 3. When Y is a discrete variable and must be positive
+<b>Three cases when Poisson Regression should be applied:</b>
+a. When there is an exponential relationship between x and y
+b. When the increase in X leads to an increase in the variance of Y
+c. When Y is a discrete variable and must be positive
 
 
 ```python
@@ -300,10 +299,10 @@ plt.ylabel("Y")
 
 ## 4. Custom GLM
 
-### Let's create a glm model with conditions below
-#### 1. The relationship between x and y is an exponential relationship
-#### 2. The variance of y is constant when x increases.
-#### 3. y can be either discret or continuous variable and also can be negative
+<b>Let's create a glm model with conditions below</b>
+a. The relationship between x and y is an exponential relationship
+b. The variance of y is constant when x increases.
+c. y can be either discret or continuous variable and also can be negative
 
 
 ```python
