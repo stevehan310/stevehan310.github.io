@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Diff in Diff Analaysis in Python"
+title: "Difference in Differences in Python"
 author: "Steve Han"
 tags: [Statistics, Python]
 categories: ML
