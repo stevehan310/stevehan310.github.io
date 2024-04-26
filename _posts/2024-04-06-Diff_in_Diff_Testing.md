@@ -15,8 +15,6 @@ categories: ML
 ---
 
 
-# Diff in Diff Analysis practice
-
 
 ```python
 import pandas as pd
@@ -147,18 +145,6 @@ df.state.value_counts()
 # New Jersey
 df_nj = df[df.state == 0]
 df_nj['delta'] = df_nj['total_emp_nov'] - df_nj['total_emp_feb']
-```
-
-    /var/folders/8c/3nykxypj32j_z4l0d64bln480000gp/T/ipykernel_99260/3770020265.py:3: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      df_nj['delta'] = df_nj['total_emp_nov'] - df_nj['total_emp_feb']
-
-
-
-```python
 print(f'the change of employment from feb to nov in New Jersey is {df_nj.delta.mean():.2f}')
 ```
 
@@ -171,18 +157,6 @@ print(f'the change of employment from feb to nov in New Jersey is {df_nj.delta.m
 ```python
 df_pa = df[df.state == 1]
 df_pa['delta'] = df_pa['total_emp_nov'] - df_pa['total_emp_feb']
-```
-
-    /var/folders/8c/3nykxypj32j_z4l0d64bln480000gp/T/ipykernel_99260/3652486956.py:2: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      df_pa['delta'] = df_pa['total_emp_nov'] - df_pa['total_emp_feb']
-
-
-
-```python
 print(f'the change of employment from feb to nov in Pennsylvania is {df_pa.delta.mean():.2f}')
 ```
 
