@@ -31,3 +31,6 @@ _site
 # Jupyter generated files
 *.ipynb
 *.ipynb_checkpoints*
+
+# Data files
+*.csv
