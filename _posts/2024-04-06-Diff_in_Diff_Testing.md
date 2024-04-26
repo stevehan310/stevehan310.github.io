@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Difference in Differences in Python"
+title: "Difference in Differences"
 author: "Steve Han"
 tags: [Statistics, Python]
 categories: ML
@@ -14,7 +14,7 @@ categories: ML
 # search: true
 ---
 
-
+# Difference in Differences in Python
 
 ```python
 import pandas as pd
