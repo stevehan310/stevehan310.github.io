@@ -281,7 +281,7 @@ for name, param in model.named_parameters():
     linear.bias tensor([0.0237])
 
 
-### * To have similar weights and biases for both models, the following rules were applied:
-##### a. Both models' weights and biases were initialized to zero.
-##### b. Data shuffling was disabled (shuffle=False in TensorFlow).
-##### c. The same random seed was used in both PyTorch and TensorFlow (torch.manual_seed(0) and np.random.seed(0)).
+<br>* To have similar weights and biases for both models, the following rules were applied:
+<br>a. Both models' weights and biases were initialized to zero.
+<br>b. Data shuffling was disabled (shuffle=False in TensorFlow).
+<br>c. The same random seed was used in both PyTorch and TensorFlow (torch.manual_seed(0) and np.random.seed(0)).
