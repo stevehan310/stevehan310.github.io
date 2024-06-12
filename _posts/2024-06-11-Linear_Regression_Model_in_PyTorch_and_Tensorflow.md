@@ -77,11 +77,6 @@ plt.legend()
 import tensorflow as tf
 ```
 
-    2024-06-11 23:59:09.968485: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-
-
-
 ```python
 # Define the model
 model = tf.keras.Sequential([
@@ -101,12 +96,6 @@ history = model.fit(X, Y, epochs=10, shuffle=False, verbose=1)
 ```
 
     Epoch 1/10
-
-
-    /Users/steve.han/miniconda3/lib/python3.11/site-packages/keras/src/layers/core/dense.py:87: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
-      super().__init__(activity_regularizer=activity_regularizer, **kwargs)
-
-
     [1m4/4[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 3ms/step - loss: 1161.4839  
     Epoch 2/10
     [1m4/4[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 2ms/step - loss: 165.0661 
@@ -151,10 +140,6 @@ plt.legend()
 plt.show()
 ```
 
-    [1m4/4[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 7ms/step 
-
-
-
 ![Alt text for broken image link](/assets/images/SLR_NN/output_8_1.png){:class="img-responsive"}
 
 
@@ -176,14 +161,6 @@ import torch.nn as nn
 import torch.optim as optim
 torch.manual_seed(0)
 ```
-
-
-
-
-    <torch._C.Generator at 0x1548cf210>
-
-
-
 
 ```python
 # Convert to PyTorch tensors
