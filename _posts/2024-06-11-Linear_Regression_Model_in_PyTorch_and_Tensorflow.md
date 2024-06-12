@@ -14,9 +14,6 @@ categories: NN
 # search: true
 ---
 
-# Simple Linear Regression Model in PyTorch and Tensorflow
-
-
 ```python
 from numpy.random import uniform, normal
 import numpy as np
