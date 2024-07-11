@@ -29,8 +29,9 @@ _asset_bundler_cache
 _site
 
 # Jupyter generated files
-*.ipynb
 *.ipynb_checkpoints*
 
 # Data files
+notebooks/data
 *.csv
+*.txt
