@@ -2,11 +2,12 @@
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
-<!-- MathJax for rendering $$...$$ / \(...\) math in posts (kramdown emits math/tex for these) -->
+<!-- MathJax for rendering math in posts. kramdown turns block $$...$$ into \[...\] and
+     leaves inline $...$ as-is, so both delimiter forms need to be registered here. -->
 <script>
   MathJax = {
     tex: {
-      inlineMath: [['\\(', '\\)']],
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']]
     }
   };
