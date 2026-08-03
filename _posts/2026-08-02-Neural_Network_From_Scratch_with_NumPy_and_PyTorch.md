@@ -6,18 +6,18 @@ tags: [Python, Deep Learning]
 categories: NN
 ---
 
-# 기본 Neural Network 만들기: NumPy vs PyTorch
+# Building a Basic Neural Network: NumPy vs PyTorch
 
-이전 포스트에서는 선형 회귀 모델을 다뤘다. 이번에는 **선형으로 분리되지 않는 데이터**를 분류하는 가장 기본적인 형태의 신경망(2-layer NN: hidden layer 1개 + output layer 1개)을 두 가지 방식으로 직접 구현해본다.
+The previous post covered a linear regression model. This time, we implement the most basic form of neural network (a 2-layer NN: one hidden layer + one output layer) to classify **data that isn't linearly separable**, using two different approaches:
 
-1. **NumPy**로 순전파(forward propagation)와 역전파(backpropagation)를 수식 그대로 직접 구현
-2. **PyTorch**의 `autograd`를 이용해 동일한 구조를 구현
+1. **NumPy**: implement forward propagation and backpropagation directly from the equations
+2. **PyTorch**: implement the same architecture using `autograd`
 
-두 구현이 같은 문제를 어떻게 푸는지 비교하면서, 신경망 학습의 핵심인 순전파 → 손실 계산 → 역전파 → 파라미터 업데이트 과정을 수식과 함께 정리한다.
+By comparing how both implementations solve the same problem, we'll walk through the core steps of training a neural network — forward pass → compute loss → backpropagation → parameter update — along with the underlying math.
 
-## 1. 데이터: 선형으로 분리되지 않는 데이터 (XOR 패턴)
+## 1. Data: Data That Isn't Linearly Separable (XOR Pattern)
 
-단순 선형 회귀/로지스틱 회귀로는 풀 수 없는 문제를 만들기 위해 XOR 형태의 2차원 데이터를 생성한다. 이런 데이터는 하나의 직선(선형 결정 경계)으로는 두 클래스를 나눌 수 없기 때문에, 은닉층(hidden layer)이 왜 필요한지를 잘 보여준다.
+To create a problem that simple linear/logistic regression can't solve, we generate 2D data in an XOR pattern. This kind of data can't be separated into two classes by a single straight line (a linear decision boundary), which nicely illustrates why a hidden layer is needed.
 
 
 ```python
@@ -35,7 +35,7 @@ np.random.seed(0)
 
 
 ```python
-# XOR 패턴의 2차원 데이터 생성 (4개의 클러스터, 대각선 클러스터끼리 같은 클래스)
+# Generate 2D data in an XOR pattern (4 clusters; diagonal clusters share the same class)
 def make_xor_data(n_per_cluster=75, std=0.6):
     centers = np.array([[0, 0], [2, 2], [0, 2], [2, 0]])
     labels = np.array([0, 0, 1, 1])  # (0,0),(2,2) -> class 0 / (0,2),(2,0) -> class 1
@@ -78,17 +78,17 @@ plt.show()
     
 
 
-## 2. 신경망 구조와 수식
+## 2. Neural Network Architecture and Equations
 
-가장 단순한 형태인 **은닉층 1개짜리 신경망(2-layer NN)** 을 사용한다.
+We use the simplest possible architecture: **a neural network with a single hidden layer (2-layer NN)**.
 
-- 입력층: 2개 노드 ($x_1, x_2$)
-- 은닉층: $n_h$개 노드, 활성화 함수는 $\tanh$
-- 출력층: 1개 노드, 활성화 함수는 sigmoid (이진 분류 확률 출력)
+- Input layer: 2 nodes ($x_1, x_2$)
+- Hidden layer: $n_h$ nodes, activation function $\tanh$
+- Output layer: 1 node, activation function sigmoid (outputs a binary classification probability)
 
-### 순전파 (Forward Propagation)
+### Forward Propagation
 
-샘플 하나에 대해:
+For a single sample:
 
 $$ Z^{[1]} = W^{[1]} X + b^{[1]} $$
 
@@ -98,17 +98,17 @@ $$ Z^{[2]} = W^{[2]} A^{[1]} + b^{[2]} $$
 
 $$ A^{[2]} = \hat{Y} = \sigma\left(Z^{[2]}\right) = \frac{1}{1 + e^{-Z^{[2]}}} $$
 
-여기서 $W^{[1]} \in \mathbb{R}^{n_h \times 2}$, $W^{[2]} \in \mathbb{R}^{1 \times n_h}$ 는 학습 대상 가중치, $b^{[1]}, b^{[2]}$ 는 편향(bias)이다.
+Here, $W^{[1]} \in \mathbb{R}^{n_h \times 2}$ and $W^{[2]} \in \mathbb{R}^{1 \times n_h}$ are the trainable weights, and $b^{[1]}, b^{[2]}$ are the biases.
 
-### 손실 함수 (Binary Cross-Entropy)
+### Loss Function (Binary Cross-Entropy)
 
-$m$개 샘플에 대한 평균 손실:
+The average loss over $m$ samples:
 
 $$ \mathcal{L} = -\frac{1}{m}\sum_{i=1}^{m}\Big[\,y^{(i)}\log a^{(2)(i)} + (1-y^{(i)})\log\left(1-a^{(2)(i)}\right)\Big] $$
 
-### 역전파 (Backpropagation)
+### Backpropagation
 
-연쇄 법칙(chain rule)을 적용해 각 파라미터에 대한 손실의 그래디언트를 구한다. $\tanh'(z) = 1 - \tanh(z)^2$ 임을 이용하면:
+Applying the chain rule, we compute the gradient of the loss with respect to each parameter. Using $\tanh'(z) = 1 - \tanh(z)^2$:
 
 $$ dZ^{[2]} = A^{[2]} - Y $$
 
@@ -122,15 +122,15 @@ $$ dW^{[1]} = \frac{1}{m}\, dZ^{[1]} X^{T} $$
 
 $$ db^{[1]} = \frac{1}{m}\sum dZ^{[1]} $$
 
-### 파라미터 업데이트 (Gradient Descent)
+### Parameter Update (Gradient Descent)
 
-학습률 $\alpha$에 대해:
+With learning rate $\alpha$:
 
 $$ W^{[l]} := W^{[l]} - \alpha\, dW^{[l]} \qquad b^{[l]} := b^{[l]} - \alpha\, db^{[l]} $$
 
-## 3. NumPy로 직접 구현하기
+## 3. Implementing It Directly in NumPy
 
-위 수식을 그대로 코드로 옮긴다. 행렬 연산 편의를 위해 입력은 `(n_features, m_samples)` 형태로 전치해서 사용한다.
+We translate the equations above directly into code. For convenience with matrix operations, the input is transposed into `(n_features, m_samples)` form.
 
 
 ```python
@@ -166,7 +166,7 @@ def forward_propagation(X, params):
 ```python
 def compute_cost(A2, Y):
     m = Y.shape[1]
-    eps = 1e-8  # log(0) 방지
+    eps = 1e-8  # avoid log(0)
     cost = -np.sum(Y * np.log(A2 + eps) + (1 - Y) * np.log(1 - A2 + eps)) / m
     return float(np.squeeze(cost))
 
@@ -223,7 +223,7 @@ def train_numpy_nn(X, Y, n_h=6, num_epochs=3000, learning_rate=0.5, seed=1):
 
     return params, costs
 
-# 입력을 (n_features, m_samples) 형태로 변환
+# reshape input into (n_features, m_samples) form
 X_np = X.T
 Y_np = Y.reshape(1, -1)
 
@@ -299,9 +299,9 @@ print(f'NumPy NN training accuracy: {train_acc_np * 100:.2f}%')
     NumPy NN training accuracy: 89.33%
 
 
-## 4. PyTorch로 구현하기
+## 4. Implementing It in PyTorch
 
-같은 구조(입력 2 → 은닉 6, `tanh` → 출력 1, `sigmoid`)를 PyTorch `nn.Module`로 정의하고, `autograd`가 역전파를 자동으로 계산하도록 한다. 직접 유도했던 $dW^{[1]}, dW^{[2]}$ 등의 수식을 PyTorch에서는 `loss.backward()` 한 줄이 대신 계산해준다.
+We define the same architecture (input 2 → hidden 6 with `tanh` → output 1 with `sigmoid`) as a PyTorch `nn.Module`, and let `autograd` compute the backward pass automatically. The equations we derived by hand for $dW^{[1]}, dW^{[2]}$, etc. are handled in PyTorch by a single call to `loss.backward()`.
 
 
 ```python
@@ -430,9 +430,9 @@ print(f'PyTorch NN training accuracy: {train_acc_torch * 100:.2f}%')
     PyTorch NN training accuracy: 89.67%
 
 
-## 5. 정리
+## 5. Summary
 
-- 직선 하나로 나눌 수 없는 XOR 형태의 데이터를, 은닉층 1개짜리 신경망으로 두 구현 모두 잘 분류했다.
-- **NumPy 구현**은 순전파·역전파 수식을 직접 코드로 옮기는 과정이므로, 신경망 내부에서 그래디언트가 어떻게 계산·전파되는지 이해하는 데 도움이 된다.
-- **PyTorch 구현**은 `nn.Module`과 `autograd`가 미분 계산과 파라미터 관리를 대신해주므로, 같은 모델을 훨씬 적은 코드로 학습시킬 수 있다.
-- 두 구현 모두 핵심은 동일하다: **순전파로 예측 → 손실 계산 → 역전파로 그래디언트 계산 → 경사하강법으로 파라미터 업데이트**.
+- Both implementations correctly classified the XOR-like data, which can't be separated by a single straight line, using a neural network with one hidden layer.
+- The **NumPy implementation** translates the forward/backward propagation equations directly into code, which helps build an intuition for how gradients are computed and propagated inside a neural network.
+- The **PyTorch implementation** lets `nn.Module` and `autograd` handle differentiation and parameter management, so the same model can be trained with much less code.
+- Both implementations share the same core loop: **forward pass to predict → compute loss → backpropagation to compute gradients → gradient descent to update parameters**.
