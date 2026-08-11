@@ -4,9 +4,6 @@ title: "Implementing Gradient Descent From Scratch: NumPy vs PyTorch"
 author: "Steve Han"
 tags: [Python, Machine Learning]
 categories: ML
----
-
-# Implementing Gradient Descent From Scratch: NumPy vs PyTorch
 
 ---
 
